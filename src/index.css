@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --primary-color: rgba(255, 255, 255, 0.87);
+  --secondary-color: #242424;
+  --body-primary-color: rgba(187, 226, 228, 0.87);
+  --body-secondary-color: #1b1a1a;
+  color-scheme: dark light;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */

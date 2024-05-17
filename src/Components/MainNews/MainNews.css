@@ -1,0 +1,64 @@
+.main-news {
+    display: flex;
+    box-sizing: border-box;
+    margin: 2%;
+    
+}
+.main-news-img {
+    flex-basis: 100%;
+}
+
+.main-news-img img {
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.main-news-content {
+    margin: 3%;
+    flex-basis: 100%;
+    position: relative;
+}
+
+.main-article-info {
+    display: flex;
+    align-items: center;
+}
+
+.main-article-info #main-article-writer {
+    margin-left: 10px;
+}
+
+.margin-left-25px {
+    margin-left: 25px;
+}
+
+.main-article-info img {
+    clip-path: circle();
+    width: auto;
+    height: 25px;
+}
+
+.main-article-heading h1{
+    font-size: 58px;
+    margin: 15px;
+}
+
+.main-article-content {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.main-article-content p{
+    font-size: 28px;
+}
+
+.main-article-type {
+    position: absolute;
+    bottom: 5px;
+}
+.main-article-type p{
+    font-size: 18px
+}
