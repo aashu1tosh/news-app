@@ -1,32 +1,40 @@
-// import { createContext, useState } from "react";
 
-// export const NewsApiContext = createContext<any>({
-    
-// })
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, } from "react";
+import { NewsContext } from "../../context/NewsContext";
+
+
 
 const NewsDataApi = () => {
 
-    const [data, setData] = useState<any []>([]);
+  const { setNewsData } = useContext(NewsContext);
 
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_APP_NEWS_URL}${import.meta.env.VITE_APP_NEWS_API_KEY}`)
-            .then((res) => {
-                console.log("Data fetched");
-                console.log(res.data.results);
-                console.log("Storign in data");
-                setData(() => res.data.results);
-                console.log(data);
-            }).catch((error) => {
-                console.log("Error occured while fetching")
-                console.log(error)
-            })
-    }, [])
-  return (
-    <div>newsdataApi</div>
-  )
+  async function fetchData() {
+    console.log("Api called")
+    try {
+      await axios.get(`${import.meta.env.VITE_APP_NEWS_URL}${import.meta.env.VITE_APP_NEWS_API_KEY}&country=us`)
+        .then((res) => {
+          console.log(res.data.results, typeof (res.data.results));
+          setNewsData(res.data.results);
+
+        }).catch((error) => {
+          console.log("Error occured while fetching")
+          console.log(error)
+        })
+    } catch (error) {
+        console.log("Error: ", error)
+    }
+
+  }
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+
+  return null
 }
+
+
 
 export default NewsDataApi

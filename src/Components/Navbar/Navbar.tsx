@@ -1,8 +1,12 @@
 import './Navbar.css'
 import { image } from '../../config/constant/image'
+import ThemeToggleButton from '../common/atom/ThemeToggleButton/ThemeToggleButton'
+
 
 const Navbar = () => {
 
+    
+    
     return (
         <>
             <div className="full-navbar">
@@ -27,9 +31,7 @@ const Navbar = () => {
                         <img src={image?.np} alt="" />
                     </span>
 
-                    <span id='theme-toggle'>
-
-                    </span>
+                    <ThemeToggleButton />
                 </div>
             </div>
         </>

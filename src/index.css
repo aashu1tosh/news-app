@@ -12,7 +12,7 @@
   --body-secondary-color: #1b1a1a;
   color-scheme: dark light;
   color: var(--secondary-color);
-  background-color: var(--primary-color);
+  background-color: var(--primary-color)!important;
 }
 
 /* @media (prefers-color-scheme: light) {
