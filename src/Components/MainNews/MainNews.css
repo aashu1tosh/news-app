@@ -9,7 +9,7 @@
 }
 
 .main-news-img img {
-    height: auto;
+    height: 400px;
     width: 100%;
     border-radius: 15px;
     object-fit: cover;
@@ -41,18 +41,19 @@
 }
 
 .main-article-heading h1{
-    font-size: 58px;
+    font-size: 50px;
     margin: 15px;
 }
 
 .main-article-content {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
-    transform: translate(0%, -50%);
+    transform: translate(0%, -50%); */
 }
 
 .main-article-content p{
     font-size: 28px;
+    padding: 5% 0;
 }
 
 .main-article-type {
@@ -61,4 +62,10 @@
 }
 .main-article-type p{
     font-size: 18px
+}
+
+@media (max-width: 1365px) {
+    .main-news {
+        flex-direction: column;
+    }
 }

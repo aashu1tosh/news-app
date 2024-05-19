@@ -1,8 +1,7 @@
 .banner {
     background-color: rgba(117, 105, 105, 0.274);
     color: var(--secondary-color);
-    /* padding: 20px;
-    margin: 10px 10px; */
+    padding: 20px;
     margin: 2%;
     border-radius: 15px;
 }
@@ -22,10 +21,17 @@
     color: red;
 }
 
-.banner-image img {
+.banner-image {
     height: 45px;
-    width: auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    width: fit-content;
+    display: inline-block;
+    vertical-align: middle; 
 }
+
+.banner-image img {
+    height: 100%;
+    width: auto;
+    display: inline-block;
+}
+
+

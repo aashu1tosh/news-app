@@ -48,3 +48,9 @@ nav .nav-items ul li {
     width: 25px;
 
 }
+
+@media (max-width: 700px) {
+    nav .nav-items {
+        display: none;
+    }
+}

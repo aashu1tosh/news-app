@@ -2,6 +2,7 @@ import './Navbar.css'
 import { image } from '../../config/constant/image'
 
 const Navbar = () => {
+
     return (
         <>
             <div className="full-navbar">

@@ -4,6 +4,8 @@ import LatestNews from './Components/LatestNews/LatestNews'
 import MainNews from './Components/MainNews/MainNews'
 import Navbar from "./Components/Navbar/Navbar"
 
+import NewsDataApi from './api/newsdataio/NewsDataApi'
+
 const App = () => {
   return (
     <>
@@ -12,6 +14,7 @@ const App = () => {
         <Banner />
         <MainNews />
         <LatestNews />
+        {/* <NewsDataApi /> */}
       </div>
 
     </>
