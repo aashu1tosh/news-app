@@ -1,6 +1,7 @@
 .full-navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 nav {
@@ -38,6 +39,11 @@ nav .nav-items ul li {
     margin-left: 15px;
     font-size: 20px;
 }
+
+nav .search-bar-container {
+
+}
+
 .user-selection {
     display: flex;
     align-items: center;
@@ -49,7 +55,7 @@ nav .nav-items ul li {
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
     nav .nav-items {
         display: none;
     }

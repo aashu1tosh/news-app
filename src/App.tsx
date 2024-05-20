@@ -5,18 +5,22 @@ import MainNews from './Components/MainNews/MainNews'
 import Navbar from "./Components/Navbar/Navbar"
 import NewsDataApi from './api/newsdataio/NewsDataApi'
 import { NewsProvider } from './context/NewsContext'
+import { SearchBarDataProvider } from './context/SearchBarContext'
 
 const App = () => {
   return (
     <>
+
       <NewsProvider>
-      <div className="main-container">
-        <Navbar />
-        <NewsDataApi />
-        <Banner />
-        <MainNews />
-        <LatestNews />
-      </div>
+        <SearchBarDataProvider>
+          <div className="main-container">
+            <Navbar />
+            <NewsDataApi />
+            <Banner />
+            <MainNews />
+            <LatestNews />
+          </div>
+        </SearchBarDataProvider>
       </NewsProvider>
     </>
   )

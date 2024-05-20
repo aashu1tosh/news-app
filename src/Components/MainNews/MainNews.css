@@ -6,6 +6,9 @@
 }
 .main-news-img {
     flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-news-img img {

@@ -14,14 +14,14 @@ const LatestNews = () => {
                 {
                     (newsData as Array).map((_, index) => (
                         
-                        <a href={newsData[index].link} target='_blank' key={index}>
+                        <a href={newsData[index].url} target='_blank' key={index}>
                             <div className="latest-news-content" key={index}>
-                                <img src={newsData[index]?.image_url || image.fallback} alt="" />
-                                <p>{newsData[index]?.creator || "Unknown"} &bull; {newsData[index]?.pubDate}</p>
+                                <img src={newsData[index]?.urlToImage || image.fallback} alt="" />
+                                <p>{newsData[index]?.author || "Unknown"}</p>
                                 <h3>{newsData[index]?.title}</h3>
 
                                 <p>{newsData[index]?.description}</p>
-                                <p><span id='red-text'>{newsData[index]?.category}</span> <span className='margin-left-25px'> &bull; {newsData[index]?.pubDate}</span></p>
+                                <p><span id='red-text'>{newsData[index]?.category}</span> <span className='margin-left-25px'> &bull; {newsData[index]?.publishedAt}</span></p>
                             </div>
                         </a>
 
