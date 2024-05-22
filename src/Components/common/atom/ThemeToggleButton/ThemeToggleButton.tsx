@@ -11,10 +11,13 @@ const ThemeToggleButton = () => {
         if (darkTheme) {
             root.style.setProperty('--primary-color', '#242424'); // Default color scheme
             root.style.setProperty('--secondary-color', 'rgba(255, 255, 255, 0.87)');
+            root.style.setProperty('--navbar-color', 'rgba(216, 31, 31, 0.603)');
+            // --navbar-color: rgba(216, 31, 31, 0.603);
             localStorage.setItem('darkTheme', 'dark');
         } else {
             root.style.setProperty('--primary-color', 'rgba(255, 255, 255, 0.87)');
             root.style.setProperty('--secondary-color', '#242424');
+            root.style.setProperty('--navbar-color', 'rgba(255, 255, 255, 0.87)');
             localStorage.setItem('darkTheme', 'light')
         }
     }, [darkTheme]);

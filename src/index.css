@@ -8,8 +8,7 @@
 :root {
   --primary-color: rgba(255, 255, 255, 0.87);
   --secondary-color: #242424;
-  --body-primary-color: rgba(187, 226, 228, 0.87);
-  --body-secondary-color: #1b1a1a;
+  --navbar-color: rgba(216, 31, 31, 0.603);
   color-scheme: dark light;
   color: var(--secondary-color);
   background-color: var(--primary-color)!important;

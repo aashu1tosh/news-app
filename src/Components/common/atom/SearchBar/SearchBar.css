@@ -1,18 +1,20 @@
-span .search-box input{
-    
+span .search-box input {
     border-radius: 15px;
+    color: var(--secondary-color);
     height: 35px;
-    width: 320px;
-
+    width: 280px;
     border: 0;
     outline: 0;
     background: transparent;
+    padding: 10px;
+
 }
 
 span .search-box {
+    margin: 10px 0;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    border-radius: 15px;
+    border-radius: 9px;
     border: 2px solid red;
     display: flex;
     align-items: center;
@@ -25,21 +27,20 @@ span .search-box img {
 
 @media (max-width: 975px) {
 
-    span .search-box input{
-        width: 120px;
+    span .search-box input {
+        width: 220px;
     }
 }
 
 @media (max-width: 770px) {
 
-    span .search-box input{
+    span .search-box input {
         width: 220px;
     }
 }
 
 @media (max-width: 500px) {
-
-    span .search-box input{
-        width: 120px;
+    span .search-box input {
+        width: 75px;
     }
 }

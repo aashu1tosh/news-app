@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { createContext, useState } from "react";
 
 
 interface ReactChildren {
@@ -11,15 +11,16 @@ interface ReactChildren {
 
 export const SearchBarContext = createContext({
     searchBarData: "",
-    setSearchBarData: () => {}
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setSearchBarData: (_data: string) => { }
 })
 
-export const SearchBarDataProvider: React.FC<ReactChildren> = ({children}) => {
+export const SearchBarDataProvider: React.FC<ReactChildren> = ({ children }) => {
     const [searchBarData, setSearchBarData] = useState<string>("");
 
-    return (        
-        <SearchBarContext.Provider value={{searchBarData, setSearchBarData}}>
-         {children}
+    return (
+        <SearchBarContext.Provider value={{ searchBarData, setSearchBarData }}>
+            {children}
         </SearchBarContext.Provider>
     )
 }

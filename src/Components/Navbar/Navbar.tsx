@@ -1,13 +1,21 @@
 import './Navbar.css'
-import { image } from '../../config/constant/image'
 import ThemeToggleButton from '../common/atom/ThemeToggleButton/ThemeToggleButton'
 import SearchBar from '../common/atom/SearchBar/SearchBar'
+import { useContext, useState } from 'react'
+import { SearchBarContext } from '../../context/SearchBarContext'
+import { RiMenu4Fill } from "react-icons/ri";
 
 
 const Navbar = () => {
+    const { setSearchBarData } = useContext(SearchBarContext);
 
 
+    const [mobileMenu, setMobileMenu] = useState(false);
 
+    const toggleMenu = () => {
+        mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
+        console.log("toggleMenu pressed")
+    }
     return (
         <>
             <div className="full-navbar">
@@ -17,12 +25,14 @@ const Navbar = () => {
                     </div>
 
                     <span id='vertical-line'>|</span>
-                    <div className="nav-items">
+                    {/* <div className="nav-items"> */}
+                    <div className={mobileMenu ? "nav-items" : "hide-mobile-bar nav-items "}>
+
                         <ul>
-                            <li>Stories</li>
-                            <li>Creator</li>
-                            <li>Community</li>
-                            <li>Subscribe</li>
+                            <li onClick={() => setSearchBarData("Sports")}>Sports</li>
+                            <li onClick={() => setSearchBarData("Business")}>Business</li>
+                            <li onClick={() => setSearchBarData("Entertainment")}>Entertainment</li>
+                            <li onClick={() => setSearchBarData("Technology")}>Technology</li>
                         </ul>
                     </div>
 
@@ -34,10 +44,14 @@ const Navbar = () => {
                 </div>
 
                 <div className="user-selection">
-                    {/* <span id="language-call">
-                        <img src={image?.np} alt="" />
-                    </span> */}
-                    <ThemeToggleButton />
+
+                    <span className='theme-toggle'>
+                        <ThemeToggleButton />
+                    </span>
+
+                    <span id="toggle-button" onClick={toggleMenu}>
+                        <RiMenu4Fill size={30} />
+                    </span>
                 </div>
             </div>
         </>

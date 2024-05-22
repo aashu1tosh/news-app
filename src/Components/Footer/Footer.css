@@ -1,0 +1,35 @@
+.footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.footer-brand p {
+    margin: 0 10px 0 0;
+}
+.footer-middle {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.footer-social {
+    color: red;
+    /* size: ; */
+    margin: 10px 0px;
+}
+
+.footer-social span {
+    padding: 5px 15px 5px 0px;
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .footer {
+        flex-direction: column;
+    }
+}

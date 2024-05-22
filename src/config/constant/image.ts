@@ -6,6 +6,7 @@ import book from '../../assets/book.png'
 import clapboard from '../../assets/clapboard.png'
 import fallback from '../../assets/fallback-image.png'
 import searchIcon from '../../assets/search.png'
+import toggle from '../../assets/menu-icon.png'
 
 export const image = {
     us,
@@ -15,5 +16,6 @@ export const image = {
     book,
     clapboard,
     fallback,
-    searchIcon
+    searchIcon,
+    toggle
 }

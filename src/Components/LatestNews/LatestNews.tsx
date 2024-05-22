@@ -1,10 +1,10 @@
-import './LatestNews.css'
-import { image } from '../../config/constant/image'
-import { NewsContext } from '../../context/NewsContext';
 import { useContext } from 'react';
+import { image } from '../../config/constant/image';
+import { NewsContext, NewsInterface } from '../../context/NewsContext';
+import './LatestNews.css';
 
 const LatestNews = () => {
-    const { newsData, setNewsData } = useContext(NewsContext);
+    const { newsData } = useContext(NewsContext);
 
     return (
         <div className='latest-news'>
@@ -12,16 +12,20 @@ const LatestNews = () => {
 
             <div className="latest-news-contents">
                 {
-                    (newsData as Array).map((_, index) => (
-                        
+                    newsData.map((_: NewsInterface, index: number) => (
+
                         <a href={newsData[index].url} target='_blank' key={index}>
                             <div className="latest-news-content" key={index}>
                                 <img src={newsData[index]?.urlToImage || image.fallback} alt="" />
-                                <p>{newsData[index]?.author || "Unknown"}</p>
-                                <h3>{newsData[index]?.title}</h3>
 
-                                <p>{newsData[index]?.description}</p>
-                                <p><span id='red-text'>{newsData[index]?.category}</span> <span className='margin-left-25px'> &bull; {newsData[index]?.publishedAt}</span></p>
+                                <div className="text-content">
+                                    <p id='red-text'>{newsData[index]?.author || "Unknown"}</p>
+                                    <h3 id='news-title'>{newsData[index]?.title}</h3>
+
+                                    <p>{newsData[index]?.description.substring(0, 100) + '...'}</p>
+                                    <span id='red-text' className='bottom-right'> {newsData[index]?.publishedAt.split('T')[0]}</span>
+                                </div>
+                                
                             </div>
                         </a>
 
@@ -31,19 +35,5 @@ const LatestNews = () => {
         </div>
     )
 }
-
-
-// cars.map((_, index) => (
-//     <div className="latest-news-content" key={index}>
-//         <img src={image?.fallback} alt="" />
-//         <p>Formula 1 &bull; 3 hours ago</p>
-//         <h3>We deserve alot more says Verstappen after, the win with RedBull.</h3>
-
-//         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error natus consequatur ex quidem enim tempora nobis, soluta repellendus laborum
-//             asperiores molestias corporis earum voluptate.</p>
-//             <p><span id='red-text'>Movies</span> <span className='margin-left-25px'> &bull; 4 mins read</span></p>
-//         <hr />
-//     </div>
-// ))
 
 export default LatestNews

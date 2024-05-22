@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useContext, useEffect, } from "react";
-import { NewsContext } from "../../context/NewsContext";
+import { NewsContext, NewsInterface } from "../../context/NewsContext";
 import { SearchBarContext } from "../../context/SearchBarContext";
 
 
@@ -10,7 +10,7 @@ import { SearchBarContext } from "../../context/SearchBarContext";
 const NewsDataApi = () => {
 
   const { setNewsData } = useContext(NewsContext);
-  const {searchBarData} = useContext(SearchBarContext);
+  const { searchBarData } = useContext(SearchBarContext);
 
 
   async function fetchData() {
@@ -18,25 +18,27 @@ const NewsDataApi = () => {
     try {
       await axios.get(`${import.meta.env.VITE_APP_NEWS_URL}${import.meta.env.VITE_APP_NEWS_API_KEY}&country=us`)
         .then((res) => {
-          console.log(res.data.articles, typeof (res.data.articles));
-          setNewsData(res.data.articles);
+          // setNewsData(res.data.articles);
+          setNewsData(res.data.articles.filter((data: NewsInterface) => data.urlToImage !== null));
 
         }).catch((error) => {
           console.log("Error occured while fetching")
           console.log(error)
         })
     } catch (error) {
-        console.log("Error: ", error)
+      console.log("Error: ", error)
     }
 
   }
 
   async function fetchSearchData() {
     try {
-      await axios.get(`https://newsapi.org/v2/everything?q=${searchBarData}&from=2024-05-19&to=2024-05-19&sortBy=popularity&apiKey=227258dc557c446eb1ba568efbdff663`)
+      const date = new Date();
+      date.setDate(date.getDate() - 1);
+      const yesterday = date.toISOString().split('T')[0];
+      await axios.get(`${import.meta.env.VITE_APP_NEWS_SEARCH_URL}${searchBarData}&from=${yesterday}&to=${yesterday}&sortBy=popularity&apiKey=${import.meta.env.VITE_APP_NEWS_API_KEY}`)
         .then((res) => {
-
-          setNewsData(res.data.articles);
+          setNewsData(res.data.articles.filter((data: NewsInterface) => data.urlToImage !== null));
           console.log(res.data.articles);
         })
     } catch (error) {
@@ -49,7 +51,7 @@ const NewsDataApi = () => {
   }, [])
 
   useEffect(() => {
-    if(searchBarData !== undefined && searchBarData !== "") {
+    if (searchBarData !== undefined && searchBarData !== "") {
       console.log("search wala bar called");
       console.log(searchBarData, "search bardata")
       fetchSearchData();
