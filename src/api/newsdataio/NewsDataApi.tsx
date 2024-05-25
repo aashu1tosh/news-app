@@ -1,9 +1,10 @@
 
 
 import axios from "axios";
-import { useContext, useEffect, } from "react";
+import { useContext, useEffect, useState, } from "react";
 import { NewsContext, NewsInterface } from "../../context/NewsContext";
 import { SearchBarContext } from "../../context/SearchBarContext";
+import './loading.css';
 
 
 
@@ -13,7 +14,11 @@ const NewsDataApi = () => {
   const { searchBarData } = useContext(SearchBarContext);
 
 
+  const [loading, setLoading] = useState<boolean>(false);
+
+
   async function fetchData() {
+    setLoading(true);
     console.log("Api called")
     try {
       await axios.get(`${import.meta.env.VITE_APP_NEWS_URL}${import.meta.env.VITE_APP_NEWS_API_KEY}&country=us`)
@@ -27,11 +32,14 @@ const NewsDataApi = () => {
         })
     } catch (error) {
       console.log("Error: ", error)
+    } finally {
+      setLoading(false);
     }
 
   }
 
   async function fetchSearchData() {
+    setLoading(true);
     try {
       const date = new Date();
       date.setDate(date.getDate() - 1);
@@ -44,6 +52,9 @@ const NewsDataApi = () => {
     } catch (error) {
       console.log("Error occured while fetching");
       console.log(error);
+    } finally {
+      setLoading(false);
+
     }
   }
   useEffect(() => {
@@ -58,10 +69,6 @@ const NewsDataApi = () => {
     }
   }, [searchBarData])
 
-
-  return null
+  return <>{loading ? <div className="loading-state"> <div className="loading-img">"Loading..."</div> </div> : <></>}</>
 }
-
-
-
 export default NewsDataApi
