@@ -1,6 +1,6 @@
-import { MdDarkMode } from "react-icons/md";
+import { useEffect, useState } from 'react';
 import { IoSunny } from "react-icons/io5";
-import { useState, useEffect } from 'react';
+import { MdDarkMode } from "react-icons/md";
 import { ThemeDetect } from '../../../../functions/ThemeChange';
 
 const ThemeToggleButton = () => {
