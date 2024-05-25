@@ -34,7 +34,7 @@
 }
 
 .latest-news-content:hover h3 {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: red;
 }
 

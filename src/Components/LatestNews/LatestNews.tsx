@@ -22,10 +22,12 @@ const LatestNews = () => {
                                     <p id='red-text'>{newsData[index]?.author || "Unknown"}</p>
                                     <h3 id='news-title'>{newsData[index]?.title}</h3>
 
-                                    <p>{newsData[index]?.description.substring(0, 100) + '...'}</p>
+                                    <p>{newsData[index]?.description
+                                        ? newsData[index].description.substring(0, 100) + '...'
+                                        : 'No description available'}</p>
                                     <span id='red-text' className='bottom-right'> {newsData[index]?.publishedAt.split('T')[0]}</span>
                                 </div>
-                                
+
                             </div>
                         </a>
 

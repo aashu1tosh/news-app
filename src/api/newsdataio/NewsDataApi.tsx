@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useContext, useEffect, useState, } from "react";
+import { ClockLoader } from "react-spinners";
 import { NewsContext, NewsInterface } from "../../context/NewsContext";
 import { SearchBarContext } from "../../context/SearchBarContext";
 import './loading.css';
@@ -69,6 +70,19 @@ const NewsDataApi = () => {
     }
   }, [searchBarData])
 
-  return <>{loading ? <div className="loading-state"> <div className="loading-img">"Loading..."</div> </div> : <></>}</>
+  return <>{loading ?
+    <div className="loading-state"> <div className="loading-img">
+      <ClockLoader
+        color={'red'}
+        // loading={loading}
+        // cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    </div> </div> :
+    <></>}</>
+
+
 }
 export default NewsDataApi
