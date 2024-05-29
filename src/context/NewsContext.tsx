@@ -2,11 +2,11 @@ import { createContext, useState } from "react";
 
 export interface NewsInterface {
     title: string,
-    url: string,
-    author: string,
+    link: string,
+    creator: string,
     description: string
-    publishedAt: string,
-    urlToImage: string,
+    pubDate: string,
+    image_url: string,
     language: string,
     category: [
         string,
